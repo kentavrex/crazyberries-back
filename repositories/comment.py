@@ -8,7 +8,7 @@ class CommentsRepository(BaseRepository):
     model = Comment
     schema = OutputCommentSchema
 
-    def get_by_product_card_id(self, product_card_id: int, limit: int, skip: int) -> list[OutputCommentSchema]:
+    async def get_by_product_card_id(self, product_card_id: int, limit: int, skip: int) -> list[OutputCommentSchema]:
         query = self.model.select().where(self.model.c.id == product_card_id).limit(limit).offset(skip)
         db_response = await self.database.fetch_all(query=query)
         if db_response is None:
