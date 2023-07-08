@@ -36,5 +36,5 @@ async def update_user(
 
 
 @router.delete("/{user_id}", status_code=204)
-def delete_user(user_id: int, users_repository: UserRepository = Depends(get_user_repository)):
+async def delete_user(user_id: int, users_repository: UserRepository = Depends(get_user_repository)):
     return await UsersService(users_repository).delete(user_id)
