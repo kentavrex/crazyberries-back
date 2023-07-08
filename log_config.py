@@ -5,7 +5,7 @@ from datetime import datetime
 
 class JsonFormatter(logging.Formatter):
     """
-    Класс необходим для решения проблемы экранирования двойных кавычек в логе
+    The class is needed to solve the problem of escaping double quotes in the log
     """
 
     def __init__(self, *args, **kwargs):

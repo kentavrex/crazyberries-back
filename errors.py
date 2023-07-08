@@ -18,4 +18,3 @@ class HandleHTTPErrorsMiddleware(BaseHTTPMiddleware):
         except Exception:
             return JSONResponse(status_code=500, content={"detail": "Internal Server Error"})
         return response
-
