@@ -1,0 +1,29 @@
+#ORM
+SQLAlchemy~=1.4.44
+
+pydantic~=1.10.2
+
+fastapi~=0.88.0
+
+uvicorn~=0.20.0
+
+# Clients for work with Postgres
+psycopg2-binary~=2.9.6
+psycopg2~=2.9.6
+asyncpg~=0.27.0
+
+# async work with db
+databases~=0.7.0
+
+# migrations
+alembic~=1.8.1
+
+# uploaded files are sent as "form data"
+python-multipart~=0.0.5
+
+pytest~=7.2.0
+
+minio~=7.1.13
+
+# timezones
+pytz

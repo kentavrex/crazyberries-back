@@ -1,0 +1,51 @@
+version: '3.9'
+
+x-config-tmp: &config-tmp
+    build:
+        context: .
+    env_file: app.env
+    volumes:
+        - ~/.ssh:/root/.ssh-localhost:ro
+        - logs:/var/log
+    user: root
+
+volumes:
+  logs: {}
+  pg_data: {}
+
+services:
+  back:
+    <<: *config-tmp
+    image: back
+    depends_on:
+    - db
+    command: "sh start.sh"
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+    - custom
+
+  db:
+    image: postgres:12.4-alpine
+    ports:
+      - 5001:5432
+    environment:
+      POSTGRES_DB: test_cb
+      POSTGRES_USER: cb_user
+      POSTGRES_PASSWORD: cb_password
+    volumes:
+      - pg_data:/var/lib/postgresql/dataCB
+    networks:
+      - custom
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - custom
+
+networks:
+  custom:
+    driver: bridge
