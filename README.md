@@ -13,9 +13,8 @@ MINIO_CLIENT_SECRET_KEY="password"
 ## Used technologies
 - Languages: Python3, Shell
 - Frameworks: FastAPI
-- Migrations: Alembic
-- Validation: Pydantic
-- Database: PostgreSQL
+- Data storage: PostgreSQL database, MinIO S3 storage
+- Alembic for migrations and Pydantic for validation
 - SQLAlchemy ORM
 - Docker
 - Repository Pattern
